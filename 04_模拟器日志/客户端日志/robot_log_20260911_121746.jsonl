@@ -1,0 +1,2 @@
+{"dir": "strat", "event": "run_start", "robot_id": "202606010578", "run_stamp": "20260911_121746", "channel_max": 20, "grid_step": 500.0, "enable_ring_probe": true, "mode": "problem4"}
+{"dir": "strat", "event": "summary", "cleared": [], "uncleared": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "vt_end": 0.0}

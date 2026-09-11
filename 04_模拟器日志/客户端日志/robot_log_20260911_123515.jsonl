@@ -1,0 +1,16 @@
+{"dir": "strat", "event": "run_start", "robot_id": "202606010578", "run_stamp": "20260911_123515", "channel_max": 20, "grid_step": 500.0, "enable_ring_probe": true, "mode": "problem4"}
+{"dir": "strat", "event": "clear_attempt", "tag": "sweep41", "channel": 15, "est": [986.89, -754.99], "spread": 6.8, "clear_result": "no_target_in_range", "vt": 0.0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_skip", "channel": 15, "reason": "same_estimate", "est": [986.89, -754.99], "moved": 0.0, "new_obs": 0}
+{"dir": "strat", "event": "clear_attempt", "tag": "sweep54", "channel": 15, "est": [1009.89, -755.38], "spread": 34.91, "clear_result": "success", "vt": 0.0}
+{"dir": "strat", "event": "summary", "cleared": [15], "uncleared": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20], "vt_end": 0.0}
