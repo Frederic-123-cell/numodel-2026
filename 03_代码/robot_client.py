@@ -42,6 +42,9 @@ COVER_MARGIN = 600.0               # 布点向外多扩一点，覆盖边界源�
 CLEAR_RADIUS = 20.0                # 清除半径
 MIN_BEARINGS = 3                   # 至少几条示向度才尝试交会定位（提高估计稳健性，抑制病态交会）
 SPREAD_TOL = 40.0                  # 定位置信阈值：观测最大垂距 <= 该值才去清除（偏大=更激进，失败仅浪费一次清除）
+MAX_ANGLE_GAP = 360.0              # 观测方位最大空隙阈值（度）：<360 时启用"单侧几何"拦截（论文8.4改进1）。
+                                   # 单侧观测下各示向线近平行，spread 极小但在射线方向系统性偏移，
+                                   # 此时即使 spread 达标也暂缓清除。默认 360=关闭，与正式测试冻结版一致。
 
 # 问题4 定向源专用（±90° 扇区、方向未知）：加密网格 + 环绕补探
 P4_GRID_STEP = 500.0              # 更密网格：任一位置周围落入接收半径内的检测点更多，
@@ -87,6 +90,8 @@ class RobotClient:
         )
         rid = payload.get("request_id")
         for attempt in range(1, max_retry + 1):
+            # 先落盘请求再发送：即使响应丢失/进程崩溃，指令序列仍可审计（附件2 §12）。
+            _log({"dir": "req", "path": path, "payload": payload, "attempt": attempt})
             try:
                 with urllib.request.urlopen(req, timeout=10) as resp:
                     raw = resp.read().decode("utf-8")
@@ -98,7 +103,6 @@ class RobotClient:
                           "error": "json_decode_failed", "raw_head": raw[:500]})
                     return {"accepted": False, "_json_decode_failed": True}
                 data["_http_code"] = 200
-                _log({"dir": "req", "path": path, "payload": payload, "attempt": attempt})
                 _log({"dir": "resp", "path": path, "http": 200, "response": data})
                 return data
             except urllib.error.HTTPError as e:
@@ -206,6 +210,23 @@ def triangulate(obs):
     return x, y, spread
 
 
+def angular_gap(obs, x, y):
+    """观测点相对估计源 (x,y) 的方位角最大空隙（度）。
+
+    观测点方位挤在一侧时（单侧几何），最大空隙接近 360°；分布越均匀空隙越小。
+    用于辅助拦截 spread 无法察觉的单侧病态（论文 8.4 改进方向 1）。
+    """
+    if len(obs) < 2:
+        return 360.0
+    angs = sorted(math.degrees(math.atan2(py - y, px - x)) % 360.0
+                  for (px, py, _) in obs)
+    gap = 0.0
+    for i in range(len(angs)):
+        nxt = angs[i + 1] if i + 1 < len(angs) else angs[0] + 360.0
+        gap = max(gap, nxt - angs[i])
+    return gap
+
+
 def grid_points(step=None):
     """生成覆盖圆域的检测点，并从原点开始按最近邻贪心排序。
 
@@ -287,6 +308,15 @@ def run_strategy(client, channel_max=20, grid_step=None, enable_ring_probe=False
                 continue
             x, y, spread = res
             if spread <= tol:
+                # 可选：单侧几何拦截（MAX_ANGLE_GAP < 360 时启用，见文件头常量说明）。
+                if MAX_ANGLE_GAP < 360.0:
+                    gap = angular_gap(obs[ch], x, y)
+                    if gap > MAX_ANGLE_GAP:
+                        _log({"dir": "strat", "event": "clear_skip", "channel": ch,
+                              "reason": "one_sided", "est": [round(x, 2), round(y, 2)],
+                              "spread": round(spread, 2), "angle_gap": round(gap, 1),
+                              "new_obs": len(obs[ch])})
+                        continue
                 # v2.1 重复清除抑制：估计点几乎没动、也没有新示向度时不重复清除。
                 # 背景：问题4 演练中频道15 曾因单侧几何（定向源只暴露半边）带固定偏差，
                 # 同一估计连续 32 次清除未中浪费大量虚拟时间；等新示向度修正估计后再试。
@@ -319,6 +349,8 @@ def run_strategy(client, channel_max=20, grid_step=None, enable_ring_probe=False
                 print("  [warn] 现实时间快到，提前结束主扫描（已扫 %d/%d 点）" % (idx - 1, len(points)))
                 break
             for ch in range(1, channel_max + 1):
+                if time_up():
+                    break
                 if ch in cleared:
                     continue
                 m = client.measure(px, py, ch)
@@ -346,6 +378,8 @@ def run_strategy(client, channel_max=20, grid_step=None, enable_ring_probe=False
                 print("  [warn] 现实时间快到，提前结束验证轮")
                 break
             for ch in pending:
+                if time_up():
+                    break
                 if ch in cleared:
                     continue
                 m = client.measure(px, py, ch)
@@ -392,6 +426,8 @@ def run_strategy(client, channel_max=20, grid_step=None, enable_ring_probe=False
 
         # ---- 收尾：对仅有 2 条观测的频道放宽阈值再试一次 ----
         for ch in range(1, channel_max + 1):
+            if time_up():
+                break
             if ch in cleared or len(obs[ch]) < 2:
                 continue
             res = triangulate(obs[ch])
@@ -445,7 +481,7 @@ def smoke_test():
 
 if __name__ == "__main__":
     mode = (sys.argv[1] if len(sys.argv) > 1 else "smoke").lower()
-    if mode == "strategy4" or mode.startswith("strategy4"):
+    if mode.startswith("strategy4"):
         # 问题4：混入定向源（±90° 扇区、方向未知）。加密网格 + 环绕补探。
         run_strategy(RobotClient(), grid_step=P4_GRID_STEP, enable_ring_probe=True,
                      mode_label="problem4")
