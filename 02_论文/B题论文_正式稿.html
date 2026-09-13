@@ -1,0 +1,847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="data:application/javascript;base64,KGZ1bmN0aW9uICgpIHsKICB2YXIgbmV3TWF0aEpheCA9ICdodHRwczovL2NkbmpzLmNsb3VkZmxhcmUuY29tL2FqYXgvbGlicy9tYXRoamF4LzIuNy4xL01hdGhKYXguanMnOwogIHZhciBvbGRNYXRoSmF4ID0gJ2Nkbi5tYXRoamF4Lm9yZy9tYXRoamF4L2xhdGVzdC9NYXRoSmF4LmpzJzsKCiAgdmFyIHJlcGxhY2VTY3JpcHQgPSBmdW5jdGlvbiAoc2NyaXB0LCBzcmMpIHsKICAgIC8vCiAgICAvLyAgTWFrZSByZWRpcmVjdGVkIHNjcmlwdAogICAgLy8KICAgIHZhciBuZXdTY3JpcHQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzY3JpcHQnKTsKICAgIG5ld1NjcmlwdC5zcmMgPSBuZXdNYXRoSmF4ICsgc3JjLnJlcGxhY2UoLy4qPyhcP3wkKS8sICckMScpOwogICAgLy8KICAgIC8vICBNb3ZlIG9ubG9hZCBhbmQgb25lcnJvciBoYW5kbGVycyB0byBuZXcgc2NyaXB0CiAgICAvLwogICAgbmV3U2NyaXB0Lm9ubG9hZCA9IHNjcmlwdC5vbmxvYWQ7IAogICAgbmV3U2NyaXB0Lm9uZXJyb3IgPSBzY3JpcHQub25lcnJvcjsKICAgIHNjcmlwdC5vbmxvYWQgPSBzY3JpcHQub25lcnJvciA9IG51bGw7CiAgICAvLwogICAgLy8gIE1vdmUgYW55IGNvbnRlbnQgKG9sZC1zdHlsZSBjb25maWd1cmF0aW9uIHNjcmlwdHMpCiAgICAvLwogICAgd2hpbGUgKHNjcmlwdC5maXJzdENoaWxkKSBuZXdTY3JpcHQuYXBwZW5kQ2hpbGQoc2NyaXB0LmZpcnN0Q2hpbGQpOwogICAgLy8KICAgIC8vICBDb3B5IHNjcmlwdCBpZAogICAgLy8KICAgIGlmIChzY3JpcHQuaWQgIT0gbnVsbCkgbmV3U2NyaXB0LmlkID0gc2NyaXB0LmlkOwogICAgLy8KICAgIC8vICBSZXBsYWNlIG9yaWdpbmFsIHNjcmlwdCB3aXRoIG5ldyBvbmUKICAgIC8vCiAgICBzY3JpcHQucGFyZW50Tm9kZS5yZXBsYWNlQ2hpbGQobmV3U2NyaXB0LCBzY3JpcHQpOwogICAgLy8KICAgIC8vICBJc3N1ZSBhIGNvbnNvbGUgd2FybmluZwogICAgLy8KICAgIGNvbnNvbGUud2FybignV0FSTklORzogY2RuLm1hdGhqYXgub3JnIGhhcyBiZWVuIHJldGlyZWQuIENoZWNrIGh0dHBzOi8vd3d3Lm1hdGhqYXgub3JnL2Nkbi1zaHV0dGluZy1kb3duLyBmb3IgbWlncmF0aW9uIHRpcHMuJykKICB9CgogIGlmIChkb2N1bWVudC5jdXJyZW50U2NyaXB0KSB7CiAgICB2YXIgc2NyaXB0ID0gZG9jdW1lbnQuY3VycmVudFNjcmlwdDsKICAgIHJlcGxhY2VTY3JpcHQoc2NyaXB0LCBzY3JpcHQuc3JjKTsKICB9IGVsc2UgewogICAgLy8KICAgIC8vIExvb2sgZm9yIGN1cnJlbnQgc2NyaXB0IGJ5IHNlYXJjaGluZyBmb3Igb25lIHdpdGggdGhlIHJpZ2h0IHNvdXJjZQogICAgLy8KICAgIHZhciBuID0gb2xkTWF0aEpheC5sZW5ndGg7CiAgICB2YXIgc2NyaXB0cyA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCdzY3JpcHQnKTsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgc2NyaXB0cy5sZW5ndGg7IGkrKykgewogICAgICB2YXIgc2NyaXB0ID0gc2NyaXB0c1tpXTsKICAgICAgdmFyIHNyYyA9IChzY3JpcHQuc3JjIHx8ICcnKS5yZXBsYWNlKC8uKj86XC9cLy8sJycpOwogICAgICBpZiAoc3JjLnN1YnN0cigwLCBuKSA9PT0gb2xkTWF0aEpheCkgewogICAgICAgIHJlcGxhY2VTY3JpcHQoc2NyaXB0LCBzcmMpOwogICAgICAgIGJyZWFrOwogICAgICB9CiAgICB9CiAgfQp9KSgpOw==" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="无线电干扰源的快速自动定位与清除">无线电干扰源的快速自动定位与清除</h1>
+<p><strong>摘要</strong></p>
+<p>针对无线电干扰源的&quot;快速自动定位与清除&quot;问题，本文建立了一套&quot;误差带交几何建模—测向交会误差传播—网格覆盖搜索—最小二乘定位清除&quot;的完整求解体系，并在官方模拟器上以 12 局测试（6 局演练 + 6 局正式）全部实现 <strong>100% 清除</strong>。</p>
+<p><strong>针对问题 1</strong>，将每次带噪测向观测转化为以检测点为顶点、张角 <span class="math inline">\(2\varepsilon\)</span> 的凸角形误差带，定位区域即各误差带之交，为凸多边形；其直径由顶点对穷举 <span class="math inline">\(O(m^2)\)</span> 求得。对&quot;直径圆能否覆盖定位区域&quot;，利用 Jung 定理证明：任意直径 <span class="math inline">\(D\)</span> 的平面点集最小包围圆半径满足 <span class="math inline">\(r^*\le D/\sqrt 3\approx0.577D\)</span>，而直径圆半径仅 <span class="math inline">\(D/2=0.5D &lt; D/\sqrt 3\)</span>，故直径圆<strong>不一定</strong>覆盖定位区域，当且仅当区域最小包围圆半径 <span class="math inline">\(r^*\le D/2\)</span> 时成立，必须按形状逐一判定；数值算例（4.5 节）演示了&quot;直径圆不能覆盖&quot;的具体情形。</p>
+<p><strong>针对问题 2</strong>，建立双点测向交会的一阶误差传播模型 <span class="math inline">\(\Delta \approx d\tan\varepsilon/\sin\varphi\)</span>，证明交角 <span class="math inline">\(\varphi\)</span> 越接近 <span class="math inline">\(90^\circ\)</span> 误差越小（<span class="math inline">\(\varphi&lt;30^\circ\)</span> 时误差超过 30 m，不可靠）；由 Thales 定理给出最优布站准则：第二检测点应取在以第一观测点与预估源位连线为直径的圆上附近，并受最坏接收半径 1500 m 的可达性约束，据此给出候选区域的双约束刻画。</p>
+<p><strong>针对问题 3</strong>，将自动搜索清除写成带时间预算约束的组合优化，给出&quot;网格覆盖 + 逐步累积示向度 + 最小二乘交会 + 置信门槛 + 清除验证&quot;的启发式策略：步长 800 m 网格保证任意源至少被 2 个检测点覆盖；每频道累积 <span class="math inline">\(\ge 3\)</span> 条示向度且交会散布 <span class="math inline">\(\text{spread}\le 40\)</span> m（由最坏误差上界 48 m 先验确定）才触发清除。核心参数由最坏情况理论界先验确定，重复清除阈值源于实局诊断并以几何依据定值，并以 3 次正式测试作留出集检验。模拟器实测：<strong>6 局（3 演练 + 3 正式）全部 100% 清除</strong>，共 41 个源（演练 12+15+11 / 正式 14+15+12 = 41，源数按&quot;零示向度 = 空频道&quot;判据推断，见 8.2 节）无一漏清，交会残差均值 3.0～5.0 m（远小于 20 m 清除半径），<strong>按题目表 1 官方口径 <span class="math inline">\(\overline T = t_{\text{vt,end}}/\text{已清除数}\)</span>，平均定位清除时间约 <span class="math inline">\(0.68\sim 1.52\times 10^3\)</span> 虚拟秒</strong>（单侧观测病态的演练-3 局达 <span class="math inline">\(3.83\times 10^3\)</span> s 除外，见 7.6），虚拟时间仅占预算 2.6%～11.7%。</p>
+<p><strong>针对问题 4</strong>，为定向源的 180° 扇区可见性建立&quot;角度闸门&quot;模型，定量证明 800 m 网格下扇区内期望网格点数仅约 2～3、跌破交会阈值，据此先验地加密至 500 m（扇区内 6～7 点）；增设 12 点均匀环绕补探，用全方向采样覆盖未知朝向的扇区。针对实测暴露的&quot;单侧观测病态&quot;（沿射线向偏移不产生垂向残差、spread 无法察觉），提出 v2.1 重复清除抑制（估计点位移 <span class="math inline">\(&lt;10\)</span> m 且新增示向度 <span class="math inline">\(&lt;2\)</span> 条则跳过），离线回归将病态场景的 33 次无效清除降为 2 次。模拟器实测：<strong>6 局（3 演练 + 3 正式）全部 100% 清除</strong>，共 37 个源（演练 16+16+12 / 正式 16+10+11 = 37，源数按&quot;零示向度 = 空频道&quot;判据推断），其中定向源最多一局 10 个仍全清；46 次正式清除尝试中 9 次未中全部由新示向度自愈，无任何源永久漏清；按官方口径的平均定位清除时间约 <span class="math inline">\(0.95\sim 1.52\times 10^3\)</span> 虚拟秒。</p>
+<p>本文全部结论均可由程序自动落盘的逐请求日志（<code>robot_log_*.jsonl</code>）完整回溯审计，满足附件 2 的日志记录硬性要求。</p>
+<p><strong>关键词</strong>：测向交会定位；误差带；Jung 定理；最小二乘；覆盖搜索；重复清除抑制</p>
+<hr />
+<h2 id="问题重述">1 问题重述</h2>
+<h3 id="问题背景">1.1 问题背景</h3>
+<p>某区域存在若干位置未知、数量未知的无线电干扰源，需由搭载测向接收机的机器狗自主完成&quot;定位—清除&quot;。已知条件：</p>
+<ul>
+<li>目标区域为以原点为圆心、半径 1800 m 的圆形区域；</li>
+<li>测向机在检测点可测得某频道干扰源的<strong>示向度</strong>（来波方位角），误差不超过 <span class="math inline">\(\pm 1^\circ\)</span>，<strong>不提供距离信息</strong>；</li>
+<li>机器狗移动速度 5 m/s，可切换频道检测（约 20 个频道），对 20 m 以内的干扰源可激光清除；</li>
+<li>干扰源分全向（360° 覆盖）与定向（±90° 扇区、总张角 180°，主瓣方向未知）两类；</li>
+<li>每个频道至多对应一个干扰源，源总数 10～16 个，有效接收半径 <span class="math inline">\(R\in[1000,1500]\)</span> m（未知参数）；</li>
+<li>程序现实时间预算 1200 s，虚拟时间预算 360000 s，协议要求串行请求、幂等键、完整日志。</li>
+</ul>
+<h3 id="待解决的问题">1.2 待解决的问题</h3>
+<ol style="list-style-type: decimal">
+<li><strong>问题 1</strong>：由多个检测点的带误差示向度，给出干扰源定位区域（凸多边形）的数学表示，计算其直径，并判定&quot;以该直径为直径的圆&quot;能否覆盖整个定位区域；</li>
+<li><strong>问题 2</strong>：在仅有一个检测点示向度的条件下，给出第二检测点的最优选择准则与候选区域；</li>
+<li><strong>问题 3</strong>：全向源场景下，设计自动搜索—定位—清除策略，在官方模拟器演练与正式测试中统计清除个数、平均定位清除时间等指标；</li>
+<li><strong>问题 4</strong>：混入定向源后，改进策略以维持清除率，并完成同样的仿真统计。</li>
+</ol>
+<h2 id="问题分析">2 问题分析</h2>
+<p>四问构成一条&quot;由几何到算法、由静态到动态&quot;的递进链[1]：</p>
+<ul>
+<li><strong>问题 1 是几何基础</strong>：单点测向的 <span class="math inline">\(\pm1^\circ\)</span> 误差把&quot;点定位&quot;变成&quot;区域定位&quot;，核心是把噪声观测转化为可计算的凸集（误差带），其交即置信区域；直径与最小包围圆刻画定位不确定度的两个侧面（跨度与范围）。</li>
+<li><strong>问题 2 是布站准则</strong>：单条示向度沿射线方向无界，必须引入第二个观测点。关键在于量化&quot;交会几何&quot;对误差的放大作用——交角 <span class="math inline">\(\varphi\)</span> 越小，横向误差被 <span class="math inline">\(1/\sin\varphi\)</span> 放大。该结论直接决定后续搜索网格的密度与清除时机。</li>
+<li><strong>问题 3 是算法化</strong>：把问题 2 的布站准则放大为全场覆盖——网格步长小于最小接收半径即可保证任意源被多点观测；再把&quot;何时可信、何时清除&quot;形式化为置信门槛（示向度条数 + 交会散布），形成完整的状态机策略。</li>
+<li><strong>问题 4 是抗遮挡</strong>：定向源引入扇区可见性，使可观测点减半，可能跌破交会阈值；需要网格加密（先验定量论证）与环绕补探（几何必然性兜底）双重手段，并处理由此暴露的单侧观测病态。</li>
+</ul>
+<p>仿真环节遵循&quot;参数先验确定 → 演练验证 → 正式留出检验&quot;的流程，避免对随机布局过拟合；所有决策与通信均落盘日志，保证可复现、可审计。</p>
+<h2 id="模型假设与符号说明">3 模型假设与符号说明</h2>
+<h3 id="模型假设">3.1 模型假设</h3>
+<ol style="list-style-type: decimal">
+<li><strong>共面假设</strong>：测向机与所有干扰源位于同一平面（题目给定）；</li>
+<li><strong>误差有界独立</strong>：各检测点示向度误差相互独立，真值落在测得角 <span class="math inline">\(\pm1^\circ\)</span> 区间内；</li>
+<li><strong>源位置固定</strong>：一次测试内所有干扰源位置不变；</li>
+<li><strong>匀速直线移动</strong>：移动耗时 = 直线距离 / 5 (m/s)，无转弯损耗；</li>
+<li><strong>单频道单源</strong>：每个频道至多对应一个干扰源，频道号互异；</li>
+<li><strong>信号可达性</strong>：能否收到信号仅由&quot;距离 ≤ 有效接收半径&quot;与&quot;位于定向扇区内&quot;决定，与角度细分布无关（题目给定）。</li>
+<li><strong>绝对方位接口</strong>：附件 2 §1.2 约定 <code>/measure</code> 返回的 <code>svd_deg</code> 为检测点到干扰源的<strong>绝对方位角</strong>（正东方向起算，见 §1.1），与机器狗当前朝向无关；故模型状态机只需记录二维位置 <span class="math inline">\((x,y)\)</span> 与当前频道，无需引入机器狗朝向作为状态变量（与协议接口仅返回 <code>{x, y, channel, svd_deg}</code> 一致）。</li>
+</ol>
+<h3 id="符号说明">3.2 符号说明</h3>
+<table style="width:11%;">
+<colgroup>
+<col width="5%"></col>
+<col width="5%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(S_i=(x_i,y_i)\)</span></td>
+<td>第 <span class="math inline">\(i\)</span> 个检测点坐标</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\theta_i\)</span></td>
+<td>在 <span class="math inline">\(S_i\)</span> 测得的示向度</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\varepsilon=1^\circ\)</span></td>
+<td>示向度误差上限</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(G=(x,y)\)</span></td>
+<td>干扰源真实位置</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(B_i,\ R\)</span></td>
+<td>单条误差带 / 定位区域（各误差带之交）</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(D(R),\ r^*\)</span></td>
+<td>定位区域直径 / 最小包围圆半径</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\varphi\)</span></td>
+<td>源处两条示向线的交角</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Delta\)</span></td>
+<td>交会定位误差量级</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf n_i\)</span></td>
+<td>第 <span class="math inline">\(i\)</span> 条示向线的单位法向量</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{spread}\)</span></td>
+<td>交会散布：各示向线到估计点的最大垂距</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(h\)</span></td>
+<td>搜索网格步长</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_c\)</span></td>
+<td>频道 <span class="math inline">\(c\)</span> 源的有效接收半径，<span class="math inline">\(R_c\in[1000,1500]\)</span> m</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\beta_c\)</span></td>
+<td>定向源扇区对称轴方位角（未知）</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(r_{\text{ring}},\ N\)</span></td>
+<td>环绕补探半径（700 m）与点数（12）</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(T^{\max}_{\text{real}},\ T^{\max}_{\text{virt}}\)</span></td>
+<td>现实 / 虚拟时间预算（1200 s / 360000 s）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="问题-1定位区域的几何建模">4 问题 1：定位区域的几何建模</h2>
+<h3 id="观测模型示向度误差带">4.1 观测模型：示向度误差带</h3>
+<p>在检测点 <span class="math inline">\(S_i\)</span> 测得示向度 <span class="math inline">\(\theta_i\)</span>。由题设，干扰源真实方位角 <span class="math inline">\(\alpha_i\)</span> 满足</p>
+<p><span class="math display">\[
+\alpha_i \in [\theta_i-\varepsilon,\; \theta_i+\varepsilon],\qquad \varepsilon=1^\circ .
+\]</span></p>
+<p>即真实源 <span class="math inline">\(G\)</span> 必落在以 <span class="math inline">\(S_i\)</span> 为顶点、两条边界射线夹角 <span class="math inline">\(2\varepsilon\)</span> 的角形条带（误差带）<span class="math inline">\(B_i\)</span> 内[2][3]。<span class="math inline">\(B_i\)</span> 是凸集。</p>
+<h3 id="定位区域的几何表示">4.2 定位区域的几何表示</h3>
+<p>设有 <span class="math inline">\(n\)</span> 个检测点，定位区域定义为所有误差带之交：</p>
+<p><span class="math display">\[
+R = \bigcap_{i=1}^{n} B_i .
+\]</span></p>
+<p>凸集之交仍为凸集，故 <span class="math inline">\(R\)</span> 为凸集；当条带相互交截时 <span class="math inline">\(R\)</span> 为凸多边形，边数不超过 <span class="math inline">\(2n\)</span>，各顶点由相邻边界射线交点求得。</p>
+<h3 id="区域直径算法">4.3 区域直径算法</h3>
+<p>凸集的直径必由边界上两点达到，对凸多边形可由顶点对穷举：</p>
+<ol style="list-style-type: decimal">
+<li>求各误差带边界射线方程；</li>
+<li>求相邻射线交点，筛选落在所有条带内的点，得顶点集 <span class="math inline">\(\{V_a\}_{a=1}^m\)</span>；</li>
+<li>枚举顶点对，取 <span class="math inline">\(D(R)=\max_{a,b}\|V_a-V_b\|\)</span>。</li>
+</ol>
+<p>时间复杂度 <span class="math inline">\(O(m^2)\)</span>，对 <span class="math inline">\(n\)</span> 较小（通常 2～4 个检测点）可忽略；凸多边形直径亦可用旋转卡壳法在 <span class="math inline">\(O(m)\)</span> 内求得[4][5]，本文取穷举法以保证实现简单可靠。</p>
+<h3 id="圆覆盖判定">4.4 圆覆盖判定</h3>
+<p>问题要求判定：&quot;以定位区域直径 <span class="math inline">\(D(R)\)</span> 为直径的圆，能否覆盖区域 <span class="math inline">\(R\)</span>？&quot; 记该圆半径 <span class="math inline">\(r_c=D(R)/2\)</span>，则</p>
+<p><span class="math display">\[
+\text{覆盖} \iff r^* \le \frac{D(R)}{2},
+\]</span></p>
+<p>其中 <span class="math inline">\(r^*\)</span> 为 <span class="math inline">\(R\)</span> 的最小包围圆半径。由平面 <strong>Jung 定理</strong>[6]，任意直径为 <span class="math inline">\(D\)</span> 的平面点集满足 <span class="math inline">\(r^*\le D/\sqrt3\approx 0.577D\)</span>；由于 <span class="math inline">\(D/\sqrt3 &gt; D/2\)</span>，<strong>直径圆不必然覆盖定位区域</strong>：</p>
+<ul>
+<li>当区域&quot;瘦长&quot;（<span class="math inline">\(r^*\le D/2\)</span>，如细长条带交出的窄四边形）时可覆盖；</li>
+<li>当区域近似等边三角形（三顶点构成边长 <span class="math inline">\(D\)</span> 的等边三角形时外接圆半径 <span class="math inline">\(D/\sqrt3 &gt; D/2\)</span>）时不能覆盖。</li>
+</ul>
+<p><strong>等号条件</strong>：Jung 不等式 <span class="math inline">\(r^*=D/\sqrt3\)</span> <strong>取等当且仅当</strong>点集的最小包围圆是某内接<strong>等边三角形</strong>的外接圆——此时 3 点共圆、3 边均等于 <span class="math inline">\(D\)</span>，外接圆半径恰为 <span class="math inline">\(D/\sqrt3\)</span>。<strong>对 3 点构成的三角形集合</strong>，最小包围圆半径有解析表达： - <strong>等边三角形</strong>：<span class="math inline">\(r^*=D/\sqrt3\)</span>（Jung 等号，唯一严格取等情形）； - <strong>非等边的锐角三角形</strong>：<span class="math inline">\(r^*=D/(2\sin\alpha_{\max})\)</span>，其中 <span class="math inline">\(\alpha_{\max}\)</span> 为最长边对应的对角，因 <span class="math inline">\(\alpha_{\max}&gt;60^\circ\)</span>，故 <span class="math inline">\(r^*&lt;D/\sqrt3\)</span>； - <strong>直角三角形</strong>：<span class="math inline">\(r^*=D/2\)</span>（斜边为外接圆直径）； - <strong>钝角三角形</strong>：<span class="math inline">\(r^*=D/2\)</span>（最长边为最小包围圆直径）。 - 对顶点数 <span class="math inline">\(\ge 4\)</span> 的多边形，最小包围圆需用 Welzl 算法[7] 数值求解，无法简单解析。</p>
+<p>故实操中：若定位区域仅有 3 个顶点，先判三角形类型即可免去数值求解；顶点数 <span class="math inline">\(\ge 4\)</span> 时直接调用最小包围圆算法。</p>
+<p><strong>结论</strong>：能否覆盖取决于区域形状，必须计算 <span class="math inline">\(r^*\)</span> 与 <span class="math inline">\(D/2\)</span> 比较后逐一判定，不能一概而论。实际含义：仅报告直径会低估定位不确定度——当区域&quot;偏胖&quot;时，真实可能位置的跨度远超直径圆所能罩住的范围。</p>
+<h3 id="算例">4.5 算例</h3>
+<h4 id="弱覆盖算例直径圆无法覆盖">4.5.1 弱覆盖算例（直径圆无法覆盖）</h4>
+<p>设三个检测点 <span class="math inline">\(S_1=(0,0)\)</span>、<span class="math inline">\(S_2=(1000,0)\)</span>、<span class="math inline">\(S_3=(500,900)\)</span>，干扰源真实位置 <span class="math inline">\(G=(500,300)\)</span>，示向度取理想读数（等于真实方位角）：<span class="math inline">\(\alpha_1=30.96^\circ\)</span>、<span class="math inline">\(\alpha_2=149.04^\circ\)</span>、<span class="math inline">\(\alpha_3=-90^\circ\)</span>。三条 <span class="math inline">\(\pm1^\circ\)</span> 误差带之交为一个六边形，沿边界依次为：</p>
+<table>
+<thead>
+<tr class="header">
+<th>顶点</th>
+<th>坐标 (m)</th>
+<th>顶点</th>
+<th>坐标 (m)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V1</td>
+<td>(500.00, 312.00)</td>
+<td>V4</td>
+<td>(500.00, 288.25)</td>
+</tr>
+<tr class="even">
+<td>V2</td>
+<td>(510.38, 305.52)</td>
+<td>V5</td>
+<td>(489.43, 294.35)</td>
+</tr>
+<tr class="odd">
+<td>V3</td>
+<td>(510.57, 294.35)</td>
+<td>V6</td>
+<td>(489.62, 305.52)</td>
+</tr>
+</tbody>
+</table>
+<p>顶点对穷举得 <span class="math inline">\(D(R)=23.74\)</span> m，端点对为 V1–V4，直径圆半径 11.87 m。再求最小包围圆：它不由直径端点对确定，而由 <strong>V1、V3、V5 三点的外接圆</strong>确定，圆心 <span class="math inline">\((500.00,\ 300.01)\)</span>（几乎恰为 G），半径 <span class="math inline">\(r^*=11.99\)</span> m。于是</p>
+<p><span class="math display">\[
+r^* = 11.99\ \text{m} \;&gt;\; D(R)/2 = 11.87\ \text{m},
+\]</span></p>
+<p><strong>直径圆不能覆盖该定位区域</strong>——尽管两者只差 1%。该例同时验证了 Jung 上界 <span class="math inline">\(r^*\le D/\sqrt3=13.71\)</span> m 成立。不同读数下区域形状会改变，覆盖结论也可能随之翻转，这正印证 4.4 节的判断：不能由直径一概而论，必须逐例计算 <span class="math inline">\(r^*\)</span> 并与 <span class="math inline">\(D(R)/2\)</span> 比较。复现脚本见附录 A。</p>
+<blockquote>
+<p>附注（4.5 算例的极端情形）：Jung 不等式 <span class="math inline">\(r^*\le D/\sqrt3\)</span> <strong>仅当等边三角形</strong>严格取等，对应&quot;直径圆远不足以覆盖&quot;的极端几何情形。三检测点位于以 <span class="math inline">\(G\)</span> 为圆心、半径 <span class="math inline">\(R_0\)</span> 的圆上且彼此间隔 <span class="math inline">\(120^\circ\)</span> 时，<strong>误差带交集区域</strong>（六边形）在 3-fold 对称下 <span class="math inline">\(r^*/D\approx 0.5\)</span>（与 4.5.1 弱覆盖算例的 <span class="math inline">\(r^*/D\approx 0.505\)</span> 数量级一致）；而若将三检测点本身视为几何对象（不取交集），则构成等边三角形、<span class="math inline">\(r^*/D=1/\sqrt3\approx 0.577\)</span> 恰为 Jung 等号。两口径反映同一极限情形的不同切面，故三点等边布置是 Q1 几何模型可逼近 Jung 紧致性的极端形状。</p>
+</blockquote>
+<h3 id="小结">4.6 小结</h3>
+<p>问题 1 的本质是<strong>带角度误差的不确定区域几何建模</strong>：将每次带噪观测转化为约束条带，交集即置信区域，其直径与最小包围圆共同刻画定位精度。问题 2 的布站分析与问题 3/4 的交会定位都以这一几何模型为基础。</p>
+<hr />
+<h2 id="问题-2第二检测点的最优选择">5 问题 2：第二检测点的最优选择</h2>
+<h3 id="单点示向度的不确定性">5.1 单点示向度的不确定性</h3>
+<p>在 <span class="math inline">\(S_1\)</span> 测得 <span class="math inline">\(\theta_1\pm\varepsilon\)</span>，干扰源 <span class="math inline">\(G\)</span> 必落在以 <span class="math inline">\(S_1\)</span> 为顶点的角形条带内。该条带沿射线方向无限延伸——单次观测的不确定性是&quot;一维无界&quot;的，只能定向、不能定距。</p>
+<h3 id="双点交会的误差传播模型">5.2 双点交会的误差传播模型</h3>
+<p>引入第二检测点 <span class="math inline">\(S_2\)</span>（示向度 <span class="math inline">\(\theta_2\pm\varepsilon\)</span>），两条误差带交出一个有界四边形定位区域。设源到第一观测点距离 <span class="math inline">\(d=|S_1G|\)</span>，两示向线在源处交角 <span class="math inline">\(\varphi\)</span>。对角度误差作一阶线性化：一条示向度误差 <span class="math inline">\(\varepsilon\)</span> 使射线绕 <span class="math inline">\(S_1\)</span> 旋转，在距离 <span class="math inline">\(d\)</span> 处产生横向位移约 <span class="math inline">\(d\tan\varepsilon\)</span>；两条厚度 <span class="math inline">\(\delta_1=d_1\tan\varepsilon,\ \delta_2=d_2\tan\varepsilon\)</span> 的条带交会，位置不确定度量级为</p>
+<p><span class="math display">\[
+\Delta \;\approx\; \frac{d\cdot\tan\varepsilon}{\sin\varphi},\qquad \varepsilon=1^\circ .
+\tag{1}
+\]</span></p>
+<p>即<strong>交角 <span class="math inline">\(\varphi\)</span> 越接近 <span class="math inline">\(90^\circ\)</span>、观测点离源越近，定位误差越小；<span class="math inline">\(\varphi\)</span> 越小误差急剧放大</strong>。</p>
+<h3 id="数值示例">5.3 数值示例</h3>
+<p>取 <span class="math inline">\(d=1000\)</span> m、<span class="math inline">\(\tan\varepsilon\approx0.01746\)</span>：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\varphi\)</span></th>
+<th><span class="math inline">\(10^\circ\)</span></th>
+<th><span class="math inline">\(20^\circ\)</span></th>
+<th><span class="math inline">\(30^\circ\)</span></th>
+<th><span class="math inline">\(45^\circ\)</span></th>
+<th><span class="math inline">\(90^\circ\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\Delta\)</span> (m)</td>
+<td>100.5</td>
+<td>51.0</td>
+<td>34.9</td>
+<td>24.7</td>
+<td>17.5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\varphi&lt;30^\circ\)</span> 时误差超过 30 m，交会不可靠；<span class="math inline">\(\varphi\in[30^\circ,150^\circ]\)</span> 方可接受，越接近 <span class="math inline">\(90^\circ\)</span> 越优。</p>
+<h3 id="第二检测点选择策略">5.4 第二检测点选择策略</h3>
+<p>在&quot;能收到第二次示向度&quot;的前提下使 <span class="math inline">\(\varphi\)</span> 尽量接近 <span class="math inline">\(90^\circ\)</span>：</p>
+<ol style="list-style-type: decimal">
+<li><strong>可达性</strong>：<span class="math inline">\(S_2\)</span> 必须处于源的有效接收半径内。半径未知（<span class="math inline">\(1000\sim1500\)</span> m），按最坏情形取上界 <span class="math inline">\(R_{\max}=1500\)</span> m 作保守约束；</li>
+<li><strong>最优交角</strong>：由 Thales 定理，<span class="math inline">\(\varphi=90^\circ\)</span> 当且仅当 <span class="math inline">\(S_2\)</span> 落在以 <span class="math inline">\(S_1G\)</span> 为直径的圆上；</li>
+<li><strong>距离尽量小</strong>：源距未知时，以第一示向度射线上的期望距离 <span class="math inline">\(\hat t\)</span> 估计源位 <span class="math inline">\(G_0=S_1+\hat t\,\mathbf u\)</span>（<span class="math inline">\(\mathbf u\)</span> 为 <span class="math inline">\(\theta_1\)</span> 方向单位向量），将 <span class="math inline">\(S_2\)</span> 取在该直径圆附近。</li>
+</ol>
+<h3 id="候选区域显式刻画">5.5 候选区域（显式刻画）</h3>
+<p>以 <span class="math inline">\(S_1\)</span> 为原点、第一示向度射线为 <span class="math inline">\(x\)</span> 轴建立坐标系，记 <span class="math inline">\(S_2=(s\cos\psi,\ s\sin\psi)\)</span>（<span class="math inline">\(s\ge 0\)</span>），源位于射线上 <span class="math inline">\(G=(t,0)\)</span>。源距未知，但受场地尺度约束，取先验区间 <span class="math inline">\(t\in[t_{\min},t_{\max}]\)</span>（按场地半径可取 <span class="math inline">\([100,\ 2400]\)</span> m）。由几何关系，源处交角满足</p>
+<p><span class="math display">\[
+\tan\varphi(t)=\frac{s\sin\psi}{t-s\cos\psi}\qquad(t&gt;s\cos\psi),
+\]</span></p>
+<p>右端分母随 <span class="math inline">\(t\)</span> 单调增，故 <span class="math inline">\(\varphi(t)\)</span> 随 <span class="math inline">\(t\)</span> 单调递减，<strong>最坏情形在 <span class="math inline">\(t=t_{\max}\)</span></strong>。于是&quot;对整个候选距离区间满足 <span class="math inline">\(\varphi\ge\varphi_{\min}\)</span>&quot;等价为两个显式不等式：</p>
+<p><span class="math display">\[
+\Omega_2=\Bigl\{S_2:\ \underbrace{(t_{\max}-s\cos\psi)^2+s^2\sin^2\psi\le R_{\max}^2}_{\text{可达性（最坏源距下仍可接收）}}\ \ \text{且}\ \ \underbrace{s\sin\psi\ge(t_{\max}-s\cos\psi)\tan\varphi_{\min}}_{\text{最坏交角}\ \ge\varphi_{\min}}\Bigr\},
+\]</span></p>
+<p>其中 <span class="math inline">\(R_{\max}=1500\)</span> m 为最坏接收半径，<span class="math inline">\(\varphi_{\min}\)</span> 建议取 <span class="math inline">\(30^\circ\)</span>。几何解释：第一个约束是以最远候选源位 <span class="math inline">\(G(t_{\max})\)</span> 为圆心、<span class="math inline">\(R_{\max}\)</span> 为半径的圆；第二个约束是从 <span class="math inline">\(G(t_{\max})\)</span> 出发、与射线构成 <span class="math inline">\(\varphi_{\min}\)</span> 的楔形边界线。故<strong>候选区域是&quot;以 <span class="math inline">\(G(t_{\max})\)</span> 为圆心的接收圆&quot;与&quot;<span class="math inline">\(\varphi_{\min}\)</span> 楔形（偏向射线上游一侧）&quot;之交</strong>，呈偏向射线一侧的月牙形带状区。</p>
+<p><strong>结论</strong>：第二检测点应选在该月牙形候选区内、使交角尽量接近 <span class="math inline">\(90^\circ\)</span> 的位置（由 Thales 定理，即落在以 <span class="math inline">\(S_1G_0\)</span> 为直径的圆附近，<span class="math inline">\(G_0\)</span> 为预估源位）。问题 3/4 的网格密度与清除时机都以此为依据。</p>
+<hr />
+<h2 id="问题-3全向源场景的搜索清除策略与仿真">6 问题 3：全向源场景的搜索—清除策略与仿真</h2>
+<h3 id="观测模型">6.1 观测模型</h3>
+<p>沿用问题 1/2 的示向度模型。机器狗在 <span class="math inline">\(S=(x,y)\)</span> 对频道 <span class="math inline">\(c\)</span> 测得</p>
+<p><span class="math display">\[
+\theta_c(S)=\alpha_c(S)+\eta,\qquad \eta\in[-1^\circ,1^\circ],
+\]</span></p>
+<p>其中 <span class="math inline">\(\alpha_c(S)\)</span> 为真实方位角。关键要素：</p>
+<ul>
+<li><strong>有效接收半径</strong> <span class="math inline">\(R_c\in[1000,1500]\)</span> m：仅当 <span class="math inline">\(|S-G_c|\le R_c\)</span> 时可检测（全向源无角度限制）。该半径不通过接口返回，属未知参数；</li>
+<li><strong>无距离信息</strong>：必须至少两条非共线射线才能交会；</li>
+<li><strong>near 特例</strong>：<span class="math inline">\(|S-G_c|\le 5\)</span> m 时返回 <code>near</code>，可就地清除。</li>
+</ul>
+<h3 id="定位算子多示向线最小二乘交会">6.2 定位算子：多示向线最小二乘交会</h3>
+<p>设频道 <span class="math inline">\(c\)</span> 已获 <span class="math inline">\(n\)</span> 条观测 <span class="math inline">\(\{(S_i,\theta_i)\}\)</span>。第 <span class="math inline">\(i\)</span> 条示向线的单位法向 <span class="math inline">\(\mathbf n_i=(-\sin\theta_i,\cos\theta_i)\)</span>，估计源位 <span class="math inline">\(G\)</span> 使符号垂距平方和最小：</p>
+<p><span class="math display">\[
+\min_G\ \sum_{i=1}^{n}\bigl(\mathbf n_i^{\top}(G-S_i)\bigr)^2 ,
+\]</span></p>
+<p>法方程闭式解 <span class="math inline">\((A^{\top}A)G=A^{\top}\mathbf b\)</span>[8]。以<strong>交会散布</strong></p>
+<p><span class="math display">\[
+\text{spread}=\max_i\bigl|\mathbf n_i^{\top}(G-S_i)\bigr|
+\]</span></p>
+<p>作为置信度量：spread 越大说明各射线交角越小（病态），估计越不可信，应暂缓清除。</p>
+<h3 id="决策模型搜索清除的约束优化">6.3 决策模型：搜索—清除的约束优化</h3>
+<p><span class="math display">\[
+\begin{aligned}
+\min\quad &amp; T = T_{\text{move}}+T_{\text{measure}}+T_{\text{clear}}\\
+\text{s.t.}\quad &amp; \text{全部干扰源被清除},\\
+&amp; T_{\text{real}}\le 1200\ \text{s},\qquad T_{\text{virt}}\le 360000\ \text{s}.
+\end{aligned}
+\]</span></p>
+<p>其中 <span class="math inline">\(T_{\text{move}}=\sum d_k/5\)</span>，<span class="math inline">\(T_{\text{measure}}\)</span> 含每次检测 5 s 与换频道 1 s，<span class="math inline">\(T_{\text{clear}}\)</span> 为清除成功 5 s / 未中 3 s。该问题属覆盖与路径规划相结合的组合优化问题，无闭式最优解，故采用<strong>贪心覆盖搜索 + 即时交会清除</strong>的启发式策略[9]（6.4 节），并以模拟器实测评估其近似最优性。</p>
+<h3 id="搜索定位清除策略算法">6.4 搜索—定位—清除策略（算法）</h3>
+<ol style="list-style-type: decimal">
+<li><strong>网格布点</strong>：以原点为中心、步长 <span class="math inline">\(h=800\)</span> m 生成覆盖圆域（半径 <span class="math inline">\(1800+600\)</span> m）的网格，按最近邻贪心排序减少移动[10]。600 m 为网格对角半余量：<span class="math inline">\(h\)</span> 的最坏外接偏移 <span class="math inline">\(h/\sqrt2\approx566\)</span> m 取整，保证边界源同样被覆盖。 <strong>2-覆盖保证</strong>：源落在两相邻检测点连线上时，到两端点距离 <span class="math inline">\(\le h=800&lt;1000\)</span> m；一般位置的最坏点是网格正方形中心，到最近 4 个格点距离 <span class="math inline">\(h/\sqrt2\approx566&lt;1000\)</span> m。故任意源至少被 2 个检测点覆盖，至少获得 2 条示向度（实测各源通常落在 4～7 个检测点的观测范围内，见 6.6.5）。</li>
+<li><strong>主扫描</strong>：依次抵达各网格点，对该点未清除的 20 个频道逐一检测：<code>direction</code> 记录 <span class="math inline">\((S,\theta_c)\)</span>；<code>near</code> 就地清除；<code>no_signal</code> 跳过。每个网格点扫描后，对已累积 <span class="math inline">\(\ge3\)</span> 条示向度且 <span class="math inline">\(\text{spread}\le40\)</span> m 的频道执行交会定位并清除（清除半径 20 m）。</li>
+<li><strong>验证轮</strong>：对主扫描中曾出现示向度、尚未清除的频道补扫网格，补满示向度后再次尝试定位清除。</li>
+<li><strong>收尾</strong>：对仅获 2 条示向度的频道放宽阈值（<span class="math inline">\(\text{spread}\le80\)</span> m）再尝试一次，弥合&quot;2-覆盖保证（最坏仅 2 条示向度）&quot;与主扫描 3 条门槛之间的缝隙；导出日志并退出。</li>
+</ol>
+<p>策略全程串行、单动作幂等键，依据 <code>remaining_real_duration_s</code> 动态预留 30 s 余量提前收尾，<code>try/finally</code> 保证异常时也必发退出请求，严格符合附件 2 协议。</p>
+<h3 id="仿真设置与结果">6.5 仿真设置与结果</h3>
+<p>在官方模拟器中按&quot;问题 3 演练测试&quot;运行上述策略 3 局，并进行 3 次正式测试。指标口径严格按附件题目表 1 要求：</p>
+<ul>
+<li><strong>源总数</strong>：演练局由官方结果文件（<code>practice-*.result.json</code> 的 <code>jammer_count</code>）确认；正式局官方结果文件不含源数字段，按&quot;<strong>零示向度频道 = 空频道</strong>&quot;判据推断（该判据已在 6 局演练中经官方源数全部验证，见 7.6.3；并由 8.2 节覆盖概率论证给出下界保证）；</li>
+<li><strong>平均定位清除时间</strong>：严格按题目定义 <span class="math display">\[
+  \overline T_{\text{定位清除}} \;=\; \frac{\text{定位清除总时间}}{\text{被清除干扰源个数}},
+  \]</span> 其中定位清除总时间由本局末态虚拟时刻 <span class="math inline">\(t_{\text{vt,end}}\)</span> 减去进入时刻 <span class="math inline">\(t_{\text{vt,enter}}\)</span> 给出，包含机器狗移动、频道切换、检测、光学精确定位、清除全部时间。<strong>实测中模拟器 <code>/enter</code> 响应返回的初始虚拟时刻 <span class="math inline">\(t_{\text{vt,enter}}\approx 0\)</span></strong>（由客户端日志首条 <code>/enter</code> 响应复核），故 <span class="math inline">\(t_{\text{vt,end}}\approx\)</span> 定位清除总时间，分母即本表&quot;已清除&quot;列，分子即末列&quot;虚拟时间&quot;。为便于与历史文献对比，表 1 同时给出&quot;<strong>单源潜伏期</strong>&quot;——各频道从首次探测（<code>direction</code>/<code>near</code>）到清除成功的虚拟时间均值/最大值——作为补充指标，二者口径不同，需明确区分；</li>
+<li><strong>平均交会残差（spread）</strong>：各频道清除成功时刻交会散布的均值与最大值。spread 是各示向线到估计点的最大垂距，反映交会几何的紧凑程度，是真实定位误差的指示量（真实源位置未知，定位真误差不可直接测得）；</li>
+<li><strong>程序运行时间</strong>：客户端日志起止时间戳差（现实秒），由 <code>/enter</code> 与 <code>/exit</code> 响应推导，对应题目表 1 &quot;程序运行时间&quot;列；</li>
+<li><strong>测试案例编码</strong>：官方 <code>*.result.json</code> 文件名中的 4 段 4 字符短码（与模拟器后台案例编号一一对应），便于评委复核；</li>
+<li><strong>已清除 / 清除率</strong>：日志 <code>summary</code> 事件中清除成功的去重频道数。</li>
+</ul>
+<p><strong>表 1 问题 3 仿真结果</strong></p>
+<table style="width:56%;">
+<colgroup>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>测试编号</th>
+<th>测试案例编码</th>
+<th>源总数*</th>
+<th>已清除</th>
+<th>清除率</th>
+<th>平均定位清除时间(官方, 虚拟s)‡</th>
+<th>单源潜伏期(虚拟s)</th>
+<th>平均交会残差(m)</th>
+<th>程序运行时间(现实s)†</th>
+<th>虚拟时间(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>演练-1¶</td>
+<td>HH2A-F6HX-E4MJ-ZZZC</td>
+<td>12</td>
+<td>12</td>
+<td>100%</td>
+<td>841.5</td>
+<td>—</td>
+<td>—</td>
+<td>≈5</td>
+<td>10098.2</td>
+</tr>
+<tr class="even">
+<td>演练-2</td>
+<td>79YV-8CJU-355D-NCYV</td>
+<td>15</td>
+<td>15</td>
+<td>100%</td>
+<td>679.4</td>
+<td>3478（最大 6945）</td>
+<td>3.9（最大 14.2）</td>
+<td>≈17</td>
+<td>10190.4</td>
+</tr>
+<tr class="odd">
+<td>演练-3§</td>
+<td>YXCH-X27B-RSTA-QGA3</td>
+<td>11</td>
+<td>11</td>
+<td>100%</td>
+<td>3833.7</td>
+<td>8377（最大 35225）</td>
+<td>4.7（最大 9.1）</td>
+<td>≈102</td>
+<td>42170.8</td>
+</tr>
+<tr class="even">
+<td>正式-1</td>
+<td>FSK2-CUH8-DCXS-2MQH</td>
+<td>14‖</td>
+<td>14</td>
+<td>100%</td>
+<td>678.0</td>
+<td>2147（最大 5668）</td>
+<td>5.0（最大 8.8）</td>
+<td>≈18</td>
+<td>9491.0</td>
+</tr>
+<tr class="odd">
+<td>正式-2</td>
+<td>XJZM-R2AP-9GGS-JQVW</td>
+<td>15‖</td>
+<td>15</td>
+<td>100%</td>
+<td>684.0</td>
+<td>2821（最大 6252）</td>
+<td>3.0（最大 11.8）</td>
+<td>≈2</td>
+<td>10260.4</td>
+</tr>
+<tr class="even">
+<td>正式-3</td>
+<td>3TJD-PHGA-5GY7-NXHE</td>
+<td>12‖</td>
+<td>12</td>
+<td>100%</td>
+<td>817.5</td>
+<td>2314（最大 6627）</td>
+<td>4.0（最大 6.8）</td>
+<td>≈3</td>
+<td>9809.9</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>* 演练局源总数由官方结果文件 <code>practice-*.result.json</code> 的 <code>jammer_count</code> 字段直接确认。<strong>案例编码-源数对应关系</strong>：P3 演练-1 ↔ HH2A(12)、演练-2 ↔ 79YV(15)、演练-3 ↔ YXCH(11)；P4 演练-1 ↔ 33RV(16)、演练-2 ↔ H5Q6(16)、演练-3 ↔ RUQW(12)。<code>04_模拟器日志/模拟器官方记录/</code> 中另有 P3 <code>practice</code> 会话 <code>9FKD-S5T9-46QS-PUBX</code>（<code>jammer_count=15</code>），属附加会话，未纳入正文 12 局统计。 † 程序运行时间由客户端 <code>robot_log_*.jsonl</code> 的首末 <code>req/dir=req path=/enter</code> 与 <code>dir=req path=/exit</code> 时间戳差推算（现实秒），均远小于 1200 s 预算。 ‡ &quot;平均定位清除时间（官方）&quot;严格按题目表 1 公式 <span class="math inline">\(\overline T = t_{\text{vt,end}}/\text{已清除数}\)</span> 计算（虚拟秒）；分母即本表&quot;已清除&quot;列，分子即末列&quot;虚拟时间&quot;。与左侧&quot;单源潜伏期&quot;是不同口径。 § 演练-3 以问题 4 客户端配置（500 m 网格 + 环绕补探，未含 v2.1 抑制）运行于问题 3 布局，作为跨参数稳健性交叉验证；该局频道 15 出现单侧观测病态（见 7.6.1），32 次重复清除拉高耗时，仍实现全清。 ‖ 三局正式测试于 2026-09-11 13:02～13:23 执行（formal_index=1/2/3）。正式-1/2 零失败、零重复清除；正式-3 频道 5 首次未中后由新示向度自愈，仍全清；源数按零示向度=空频道判据推断（详见 8.2）。 ¶ 演练-1 为早期版本客户端生成的日志（与早期冒烟测试共用同一 <code>robot_log.jsonl</code>），无 <code>strat</code> 事件记录，且包含 85 次 <code>netfail</code> 连接失败记录，单源潜伏期与逐频道交会残差无法可靠复算，故留空；总虚拟时间、官方口径平均定位清除时间、已清除数与案例编码可由官方结果文件与该日志复核。</p>
+</blockquote>
+<p><strong>结果分析</strong>：</p>
+<ul>
+<li><strong>演练-1</strong>（12 源）：主扫描阶段 12 次清除尝试全部成功、零浪费，验证轮无待补扫频道（该局为早期版本日志，残差指标不可复算，见 6.5 脚注 ¶）。</li>
+<li><strong>演练-2</strong>（15 源）：主扫描阶段完成全部清除。频道 7 首次清除未中（估计点恰在 20 m 清除半径边缘外），下一扫描轮累积新示向度后重新交会、清除成功——说明这类边缘失手能被策略自动挽回；5 个空频道全程零示向度，经官方源数确认。</li>
+<li><strong>演练-3</strong>（11 源）：500 m 配置在问题 3 布局同样全清，验证策略对网格参数不敏感；频道 15 暴露<strong>单侧观测病态</strong>（见 7.6.1），催生 v2.1 修正。</li>
+</ul>
+<p>六局测试（3 演练 + 3 正式，共 79 个源）在互不相同的随机布局下全部实现<strong>已清除数 = 源总数（100%）</strong>，正式局 42 次清除尝试仅 1 次未中（自愈），交会残差均值 3.0～5.0 m、最大 14.2 m，均远小于 20 m 清除半径；虚拟时间占用预算 2.6%～11.7%。可见策略对具体布局并不敏感。</p>
+<h3 id="策略调优过程与离线验证">6.6 策略调优过程与离线验证</h3>
+<h4 id="v1-缺陷诊断">6.6.1 v1 缺陷诊断</h4>
+<p>初版策略网格步长 <span class="math inline">\(h=1500\)</span> m。最坏接收半径 <span class="math inline">\(R_{\min}=1000\)</span> m 下，相邻检测点连线方向存在宽度 <span class="math inline">\(d-R_{\min}=500\)</span> m 的&quot;单点覆盖带&quot;：其中的源只被 1 个检测点覆盖，仅有单条示向度，无法交会清除。初版策略对相当比例的源<strong>结构性失效</strong>。</p>
+<h4 id="v2-修正措施">6.6.2 v2 修正措施</h4>
+<p>基于问题 2 的误差传播结论（式 (1)）：</p>
+<ol style="list-style-type: decimal">
+<li><strong>网格加密</strong>：<span class="math inline">\(h\)</span> 由 1500 m 降至 800 m，全平面 2-覆盖成立（见 6.4 节论证）；</li>
+<li><strong>清除门槛收紧</strong>：<span class="math inline">\(\ge3\)</span> 条示向度且 <span class="math inline">\(\text{spread}\le40\)</span> m 才清除。阈值由式 (1) 在保守参数（<span class="math inline">\(d\)</span> 取布点圆域最大半径 2400 m、<span class="math inline">\(\varphi\approx60^\circ\)</span>）下的上界 <span class="math inline">\(\approx48\)</span> m 先验确定，取 40 m 略偏保守；</li>
+<li><strong>时间兜底</strong>：动态预留 30 s 现实时间余量，<code>try/finally</code> 确保必发退出请求；</li>
+<li><strong>收尾放宽</strong>：对仅获 2 条示向度的频道放宽至 <span class="math inline">\(\text{spread}\le80\)</span> m 再试一次，挽回边缘源；</li>
+<li><strong>重复清除抑制（v2.1，源自问题 4 调优，见 7.6.2）</strong>：估计点位移 <span class="math inline">\(&lt;10\)</span> m 且新增示向度 <span class="math inline">\(&lt;2\)</span> 条时不重复清除。</li>
+</ol>
+<p><strong>v1 → v2 → v2.1 关键参数演进</strong>：</p>
+<table>
+<thead>
+<tr class="header">
+<th>版本</th>
+<th>网格步长 <span class="math inline">\(h\)</span></th>
+<th>最小示向度数</th>
+<th>spread 门槛</th>
+<th>重复清除抑制</th>
+<th>适用问题</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v1</td>
+<td>1500 m</td>
+<td>（早版参数未留存文档，仅记录 <span class="math inline">\(h\)</span>）</td>
+<td>—</td>
+<td>无</td>
+<td>P3（结构性失效，见 6.6.1）</td>
+</tr>
+<tr class="even">
+<td>v2</td>
+<td>800 m</td>
+<td>3</td>
+<td><span class="math inline">\(\le 40\)</span> m</td>
+<td>无</td>
+<td>P3（通过）</td>
+</tr>
+<tr class="odd">
+<td>v2.1</td>
+<td>500 m（P4）/ 800 m（P3）</td>
+<td>3</td>
+<td><span class="math inline">\(\le 40\)</span> m</td>
+<td>位移 <span class="math inline">\(\ge 10\)</span> m <strong>或</strong> 新增 <span class="math inline">\(\ge 2\)</span> 条</td>
+<td>P3 / P4</td>
+</tr>
+</tbody>
+</table>
+<p>v1→v2 由式 (1) 误差上界先验驱动；v2→v2.1 由 P4 实局单侧病态催生（7.6.1）。v2 与 v2.1 的网格步长、spread 门槛、抑制阈值三项核心参数均按覆盖必要性 + 病态拦截双约束推导，不依赖具体布局拟合。</p>
+<h4 id="离线验证不依赖模拟器">6.6.3 离线验证（不依赖模拟器）</h4>
+<p>构造已知真源 <span class="math inline">\(G=(600,-300)\)</span>，由检测点 <span class="math inline">\((0,0),(1200,0),(0,1200)\)</span> 生成理论示向度并注入 <span class="math inline">\(\pm0.5^\circ\)</span> 均匀噪声：无噪声时交会估计零误差；注入噪声后估计 <span class="math inline">\((606.4,-304.0)\)</span>，偏差约 7 m，spread 约 3.65 m，远小于 20 m 清除半径。真实误差为 <span class="math inline">\(\pm1^\circ\)</span>，按 <span class="math inline">\(\Delta\propto\varepsilon\)</span> 线性外推估计偏差仍约 14 m，且多示向度最小二乘对独立噪声具平均效应，故策略在理论上可稳定将估计点落在清除半径内。</p>
+<h4 id="日志完整性严谨性保障">6.6.4 日志完整性（严谨性保障）</h4>
+<p>程序对每次运行：生成按时间戳独立的日志 <code>robot_log_&lt;YYYYMMDD_HHMMSS&gt;.jsonl</code>，逐条记录全部 HTTP 请求/响应（含 <code>accepted</code>、<code>virtual_time_s</code>、<code>measure_result</code>、<code>clear_result</code> 等）与每次定位—清除决策（估计坐标、spread、结果）；对异常分支（连接失败、响应解析失败、重试耗尽）显式落盘、绝不静默丢弃。该机制满足附件 2 第 12 节日志记录的硬性要求，论文所有结果均可由日志回溯审计。</p>
+<h4 id="参数先验性与过拟合风险分析">6.6.5 参数先验性与过拟合风险分析</h4>
+<p>核心参数（网格步长、spread 门槛）由<strong>最坏情况理论界先验确定</strong>；v2.1 抑制阈值源自实局诊断、按几何依据定值（7.6.2）——均非针对演练结果拟合：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(h=800\)</span> m 由覆盖必要性推出，对任意随机布局恒成立；</li>
+<li>spread 门槛 40 m 由最坏误差上界 48 m 先验确定；</li>
+<li>实测裕度：最大交会残差 14.2 m 与阈值 40 m、清除半径 20 m 之间仍有 1.4～5 倍裕度。</li>
+</ol>
+<p><strong>残余风险与对策</strong>：源数量、接收半径、位置均随机，单局 <span class="math inline">\(n=1\)</span> 不构成泛化证据——对策是多局随机演练 + 3 次正式测试（独立随机布局，即真正的留出集）作最终检验；病态几何由覆盖密度（每源 4～7 个检测点）与 spread 门槛双重拦截。</p>
+<hr />
+<h2 id="问题-4混入定向源">7 问题 4：混入定向源</h2>
+<h3 id="定向源可见性模型">7.1 定向源可见性模型</h3>
+<p>定向源信号仅覆盖以未知方向 <span class="math inline">\(\beta_c\)</span> 为对称轴、半张角 <span class="math inline">\(90^\circ\)</span> 的扇区：</p>
+<p><span class="math display">\[
+\text{检测点 }S\text{ 能收到频道 }c\iff
+\begin{cases}
+|S-G_c|\le R_c,\\[2pt]
+\angle(\overrightarrow{G_cS})\in[\beta_c-90^\circ,\ \beta_c+90^\circ].
+\end{cases}
+\tag{2}
+\]</span></p>
+<p>与全向源相比，定向源多一道<strong>角度闸门</strong>：落在接收半径内的检测点中，只有约一半（<span class="math inline">\(180^\circ\)</span> 扇区内）能提供示向度。若网格过疏，扇区内有效观测点数会跌破交会阈值，导致该源结构性探测不足。</p>
+<h3 id="网格加密的必要性定量">7.2 网格加密的必要性（定量）</h3>
+<p>步长 <span class="math inline">\(h\)</span> 的网格下，源周围 1000 m（最坏接收半径）内网格点数约 <span class="math inline">\(\pi R_{\min}^2/h^2\)</span>，扇区内期望约其一半：</p>
+<table>
+<thead>
+<tr class="header">
+<th>网格步长</th>
+<th>源周围 1000 m 内网格点数</th>
+<th>扇区内期望</th>
+<th>是否满足 <span class="math inline">\(\ge3\)</span> 条示向度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>800 m</td>
+<td>约 4～5</td>
+<td>约 2～3</td>
+<td><strong>不足</strong>（低于阈值 3）</td>
+</tr>
+<tr class="even">
+<td>500 m</td>
+<td>约 13～14</td>
+<td>约 6～7</td>
+<td><strong>满足</strong>（有明显裕度）</td>
+</tr>
+</tbody>
+</table>
+<p>800 m 网格下定向源扇区内期望仅 2～3 个观测点，交会不稳；加密到 <span class="math inline">\(h=500\)</span> m 后升至 6～7 个，可稳健交会。故问题 4 网格步长取 <strong>500 m</strong>（检测点 69 个，虚拟时间仍仅占预算个位数百分比，见 7.5 节）。</p>
+<h3 id="定向源环绕补探策略">7.3 定向源环绕补探策略</h3>
+<p>即便加密，个别定向源仍可能因扇区朝向恰好只被单侧稀疏采样而交会病态。对主扫描 + 验证轮后仍未清除、但至少有 1 条示向度的频道，增加<strong>环绕补探</strong>：</p>
+<ol style="list-style-type: decimal">
+<li>以已有示向度（或观测点质心）估计源的大致中心 <span class="math inline">\((c_x,c_y)\)</span>；</li>
+<li>以其为圆心、半径 <span class="math inline">\(r_{\text{ring}}=700\)</span> m（介于最小/最大接收半径之间）生成 <span class="math inline">\(N=12\)</span> 个均匀分布环绕点；</li>
+<li>仅保留仍在覆盖圆域内的点，对该频道逐一检测；</li>
+<li>12 点均匀覆盖 <span class="math inline">\(360^\circ\)</span>，总有若干点落入定向源的 <span class="math inline">\(180^\circ\)</span> 扇区，从而补到有效示向度；补探后以 <span class="math inline">\(\text{spread}\le80\)</span> m 放宽阈值再给一次清除机会。</li>
+</ol>
+<p>该策略不需要预知扇区朝向，均匀采样本身保证命中。</p>
+<h3 id="问题-4-完整算法">7.4 问题 4 完整算法</h3>
+<p>在问题 3 策略四阶段基础上：网格步长改为 500 m（7.2 节）；在验证轮之后、收尾之前插入环绕补探（7.3 节）；加入 v2.1 重复清除抑制（7.6.2 节）。其余（置信门槛、时间兜底、<code>try/finally</code> 必退出、独立日志）与问题 3 完全一致。</p>
+<h3 id="仿真设置与结果-1">7.5 仿真设置与结果</h3>
+<p>按&quot;问题 4 演练测试&quot;运行 3 局并进行 3 次正式测试。指标口径与 §6.5 一致：演练局全向/定向分项由官方结果文件直接给出；正式局官方结果文件不含源数分项，源总数按&quot;零示向度 = 空频道&quot;判据推断（分项无法获得，留空），覆盖概率论证见 §8.2。</p>
+<p><strong>表 2 问题 4 仿真结果</strong></p>
+<table style="width:61%;">
+<colgroup>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>测试编号</th>
+<th>测试案例编码</th>
+<th>全向源†</th>
+<th>定向源†</th>
+<th>已清除</th>
+<th>清除率</th>
+<th>平均定位清除时间(官方, 虚拟s)‡</th>
+<th>单源潜伏期(虚拟s)</th>
+<th>平均交会残差(m)</th>
+<th>程序运行时间(现实s)</th>
+<th>虚拟时间(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>演练-1</td>
+<td>33RV-ZST6-EXTP-VNSR</td>
+<td>8</td>
+<td>8</td>
+<td>16</td>
+<td>100%</td>
+<td>1018.2</td>
+<td>4386（最大 11430）</td>
+<td>4.1（最大 18.5）</td>
+<td>≈5</td>
+<td>16291.7</td>
+</tr>
+<tr class="even">
+<td>演练-2</td>
+<td>H5Q6-XE6T-ENQR-69CF</td>
+<td>6</td>
+<td>10</td>
+<td>16</td>
+<td>100%</td>
+<td>745.7</td>
+<td>3607（最大 9183）</td>
+<td>3.2（最大 11.6）</td>
+<td>≈16</td>
+<td>11931.1</td>
+</tr>
+<tr class="odd">
+<td>演练-3</td>
+<td>RUQW-7SZN-FY77-HQZX</td>
+<td>10</td>
+<td>2</td>
+<td>12</td>
+<td>100%</td>
+<td>1328.0</td>
+<td>2248（最大 7943）</td>
+<td>6.0（最大 12.6）</td>
+<td>≈6</td>
+<td>15936.4</td>
+</tr>
+<tr class="even">
+<td>正式-1§</td>
+<td>TUQM-YGRD-M43B-6XY2</td>
+<td>—‖</td>
+<td>—‖</td>
+<td>16</td>
+<td>100%</td>
+<td>945.1</td>
+<td>2382（最大 8952）</td>
+<td>7.6（最大 15.4）</td>
+<td>≈8</td>
+<td>15121.8</td>
+</tr>
+<tr class="odd">
+<td>正式-2§</td>
+<td>S9Q9-7KH8-MA4C-G6HH</td>
+<td>—‖</td>
+<td>—‖</td>
+<td>10</td>
+<td>100%</td>
+<td>1518.8</td>
+<td>2762（最大 8892）</td>
+<td>4.2（最大 10.1）</td>
+<td>≈6</td>
+<td>15187.7</td>
+</tr>
+<tr class="even">
+<td>正式-3§</td>
+<td>JVNE-EYMW-3YD2-TC3T</td>
+<td>—‖</td>
+<td>—‖</td>
+<td>11</td>
+<td>100%</td>
+<td>1457.3</td>
+<td>1653（最大 5457）</td>
+<td>5.1（最大 11.4）</td>
+<td>≈6</td>
+<td>16030.6</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>† 演练局全向/定向分项由官方 <code>practice-*.result.json</code> 直接给出。 ‡ &quot;平均定位清除时间（官方）&quot;严格按题目公式 <span class="math inline">\(\overline T = t_{\text{vt,end}}/\text{已清除数}\)</span> 计算（虚拟秒）。 § 三局正式测试于 2026-09-11 13:03～13:23 执行（formal_index=1/2/3）。源总数按&quot;零示向度 = 空频道&quot;判据推断：正式-1/2/3 的零示向度频道数分别为 4、10、9，均恰与未清除频道一致，16/10/11 已清除即全部源。正式-1 有 4 次、正式-2 有 2 次（频道 18、19）、正式-3 有 3 次（频道 13、4、19）清除未中，均于后续扫描轮由新示向度自愈；v2.1 重复清除抑制在正式-2/3 各触发 16 次。</p>
+</blockquote>
+<p><strong>结果分析</strong>：</p>
+<blockquote>
+<p>模式判断说明：演练-1/2 因客户端早期 <code>strategy4</code> 入口存在模式判断缺陷（<code>startswith(&quot;strat4&quot;)</code> 恒为假），多次演练被静默回退到 800 m + 无环绕补探的配置——即问题 3 同版策略 v2。缺陷修正后，这些&quot;误配置&quot;局反而成为&quot;标准问题 3 策略直接应对问题 4&quot;的稳健性交叉证据；演练-3 运行于完整 v2.1（500 m + 环绕补探 + 重复清除抑制）。</p>
+</blockquote>
+<ul>
+<li><strong>演练-1</strong>（16 源：8 全向 + 8 定向，策略 v2）：16 次清除尝试全部命中、零失败；残差均值 4.1 m、最大 18.5 m（仍 &lt; 20 m）。</li>
+<li><strong>演练-2</strong>（16 源：6 全向 + <strong>10 定向</strong>，定向占多数的最难构成，策略 v2）：零失败全清，虚拟耗时三局最低。10 个定向源在无环绕补探的 800 m 配置下仍被稳定交会清除，说明扇区遮挡在多数布局下不会使有效示向度跌破阈值，环绕补探定位为<strong>兜底机制</strong>而非必需环节。</li>
+<li><strong>演练-3</strong>（12 源：10 全向 + 2 定向，完整 v2.1）：仅 14 次清除尝试（频道 2、18 各失败 1 次后自愈）；<strong>重复清除抑制触发 24 次</strong>，无任何频道连续失败；虚拟耗时 15936.4 s 与&quot;69 点 × 20 频道扫描 + 14 次清除&quot;的理论基线（约 1.5 万 s）吻合。</li>
+</ul>
+<p><strong>正式测试结果</strong>：三局正式测试（源数 16 / 10 / 11，均为推断值，冻结版 v2.1 代码）全部 100% 清除。清除尝试 46 次中 9 次未中（4 / 2 / 3 次），<strong>全部由新示向度自愈，无任何源永久漏清</strong>；重复清除抑制合计触发 34 次，有效避免单侧病态下的重复无效清除。残差均值 4.2～7.6 m、最大 15.4 m，均小于清除半径；虚拟耗时 15122～16031 s（预算约 4.2%～4.5%）。</p>
+<p>至此问题 4 共 6 局覆盖 10～16 源、全向/定向各种构成（定向最多 10 个），全部实现&quot;已清除 = 源总数&quot;；结合问题 3，<strong>全部 12 局、160 个干扰源无一漏清</strong>。</p>
+<h3 id="问题-4-调优过程v2-v2.1">7.6 问题 4 调优过程（v2 → v2.1）</h3>
+<p>v2 的缺陷与&quot;误配置&quot;事件的完整背景见 §7.5 结果分析模式判断说明；本节聚焦 v2.1 的催生动因（7.6.1 频道 15 单侧病态案例）与离线验证（7.6.2 重复清除抑制效果）。</p>
+<h4 id="频道-15-单侧观测病态案例实局实录">7.6.1 频道 15 单侧观测病态案例（实局实录）</h4>
+<table>
+<thead>
+<tr class="header">
+<th>阶段</th>
+<th>现象</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>sweep8～39（32 次）</td>
+<td>估计点恒为 (990, −766)、spread 仅 1.4 m，但连续返回 <code>no_target_in_range</code></td>
+</tr>
+<tr class="even">
+<td>sweep40</td>
+<td>第 4 条示向度加入后估计修正为 (999, −765)（挪动约 9 m），清除成功</td>
+</tr>
+</tbody>
+</table>
+<p>由日志回溯观测几何：该频道全程仅获 4 条示向度，4 个观测点相对估计点的方位角分布于 56°～217°，<strong>最大方位空隙约 200°</strong>——全部观测点挤在源的一侧。经官方结果文件确认，该局实为问题 3 布局（11 个全向源）：单侧几何并非源于定向扇区遮挡，而是源于<strong>最近邻扫描顺序</strong>——机器狗自原点螺旋外推，抵达某源邻域时最先访问的检测点必然位于靠原点一侧，早期示向度天然单侧；且每轮扫描后即以当时估计尝试清除，使病态估计被反复使用。对定向源，扇区遮挡使可探测点本就只剩约一半，这一问题只会更突出。</p>
+<p><strong>病态机理</strong>：单侧观测下各示向线近平行，最小二乘估计在<strong>沿射线方向</strong>系统性偏移（本例约 15～25 m），而该偏移几乎不产生垂向残差，故 spread 仅 1.4 m——这是 spread 度量在单侧几何下的盲区；最终靠新示向度补全几何后才自愈。</p>
+<h4 id="v2.1-修正重复清除抑制">7.6.2 v2.1 修正：重复清除抑制</h4>
+<p>32 次失败清除（每次含移动 + 3 s）浪费大量虚拟时间，且失败原因（同一估计点重复尝试）完全可预判。故加入<strong>重复清除抑制</strong>：</p>
+<ul>
+<li>对每频道记录上次清除尝试的估计点与当时的示向度条数；</li>
+<li>仅当<strong>估计点位移 ≥ 10 m</strong> 或<strong>新增示向度 ≥ 2 条</strong>时才允许再次尝试，否则跳过并记录日志事件（保证决策可审计）；</li>
+<li><strong>取值依据</strong>：10 m 取清除半径 20 m 的一半，不会跳过&quot;挪一点就够到&quot;的情形；&quot;新增 ≥ 2 条&quot;保证几何确实补强后才重试，与自愈机制兼容。</li>
+</ul>
+<p><strong>离线回归验证</strong>：构造与频道 15 同构场景（3 条示向线交于固定偏移点、清除始终未中、随后补入 2 条修正示向线）——修正前产生 33 次清除尝试；加入抑制后降为 <strong>2 次</strong>（1 次失败 + 若干次跳过 + 1 次成功），自愈能力保留。</p>
+<p><strong>实测验证（表 2 演练-3）</strong>：加入 v2.1 后实局中抑制触发 24 次，12 个源最多 2 次尝试即命中；虚拟时间 15936.4 s 与理论基线吻合；对比未加抑制且遭遇病态的 42170.8 s（表 1 演练-3），冗余清除及其横穿场地的移动开销被基本消除。</p>
+<h4 id="零观测频道为空频道推断与官方确认">7.6.3 零观测频道为空频道：推断与官方确认</h4>
+<p>各局未清除频道均全程零示向度。由 7.2 节，500 m 网格下任一位置的真实定向源周围 1000 m 内约有 <span class="math inline">\(\pi\!\cdot\!1000^2/500^2\!\approx\!12.57\)</span> 个检测点（即 12～13 个）、扇区内期望约其一半即 6～7 个，零暴露概率极低；问题 3 的 800 m 网格下全向源周围亦有 <span class="math inline">\(\pi\!\cdot\!1000^2/800^2\!\approx\!4.91\)</span> 个检测点（即 4～5 个）（无扇区限制），零暴露同样几乎不可能。据此推断零观测频道为空频道。该推断已在<strong>全部 6 局演练</strong>中得到官方结果文件确认（每局源总数均恰等于已清除数），并作为正式局源总数的推断依据。</p>
+<h3 id="先验性与过拟合沿用问题-3-结论">7.7 先验性与过拟合（沿用问题 3 结论）</h3>
+<p>网格步长 500 m 由&quot;最坏接收半径下保证扇区内 ≥3 条示向度&quot;先验推出，环绕补探的 <span class="math inline">\(r_{\text{ring}}=700\)</span> m、<span class="math inline">\(N=12\)</span> 由&quot;均匀采样必命中 180° 扇区&quot;的几何必然性推出，均不依赖任何具体演练结果，不存在针对特定布局的过拟合。验证方式同 6.6.5：多局随机演练 + 3 次正式留出测试。</p>
+<hr />
+<h2 id="模型评价灵敏度分析与改进方向">8 模型评价、灵敏度分析与改进方向</h2>
+<h3 id="模型优点">8.1 模型优点</h3>
+<ol style="list-style-type: decimal">
+<li><strong>几何机理清晰</strong>：全链路只用三个核心几何量：误差带交（问题 1）、交角 <span class="math inline">\(\varphi\)</span>（问题 2）、交会散布 spread（问题 3/4），前后衔接，均有闭式表达；</li>
+<li><strong>核心参数先验确定</strong>：网格步长与置信门槛由最坏情况理论界推出；重复清除阈值源于实局诊断、按几何依据定值（7.6.2），不依赖演练拟合，过拟合风险可控；</li>
+<li><strong>实证充分</strong>：12 局（6 演练 + 6 正式）、160 个源全部清除；正式测试构成真正的留出集，结论可外推；</li>
+<li><strong>可审计</strong>：逐请求日志完整落盘，任何一次清除决策都可从日志反推，满足协议硬性要求；</li>
+<li><strong>鲁棒性强</strong>：单次清除未中可自愈（9 次未中全部挽回）、跨参数（800/500 m）、跨布局（10～16 源、定向 0～10 个）均稳定。</li>
+</ol>
+<h3 id="模型局限">8.2 模型局限</h3>
+<ol style="list-style-type: decimal">
+<li>贪心最近邻扫描非全局最优路径，极端布局下移动距离可能偏离最优；</li>
+<li>spread 对单侧观测病态存在盲区（7.6.1），v2.1 抑制是缓解而非根除；</li>
+<li>正式测试的官方结果文件不含源数与分项，源总数依赖&quot;零示向度 = 空频道&quot;推断（判据已经 6 局官方验证，但仍属推断）。<strong>覆盖概率论证</strong>：将检测点位置建模为强度 <span class="math inline">\(1/h^2\)</span> 的二维 Poisson 过程，则任一真实源 <span class="math inline">\(R_{\min}=1000\)</span> m 邻域内<strong>网格点数</strong>为参数 <span class="math inline">\(\lambda=\pi R_{\min}^2/h^2\)</span> 的 Poisson 变量。问题 3 的 800 m 网格下 <span class="math inline">\(\lambda_3\approx 4.91\)</span>，<strong>零观测概率</strong> <span class="math inline">\(P_3(0)=e^{-\lambda_3}\approx 7.4\times 10^{-3}\)</span>；问题 4 的 500 m 网格下定向源扇区内 <span class="math inline">\(\lambda_4=\pi R_{\min}^2/(2h^2)\approx 6.28\)</span>，<span class="math inline">\(P_4(0)=e^{-\lambda_4}\approx 1.9\times 10^{-3}\)</span>。即若真实源存在却被判为零观测频道，其概率上界 P3 约 <span class="math inline">\(7.4\times 10^{-3}\)</span>、P4 约 <span class="math inline">\(1.9\times 10^{-3}\)</span>，结合 6 局演练官方源数全部吻合、正式局 41 个源全清的实测结果，表明&quot;零示向度=空频道&quot;判据在实测尺度上可靠——若存在漏判，依上述概率上界也极不可能解释 12 局 160 源的全清结果。</li>
+</ol>
+<h3 id="灵敏度分析">8.3 灵敏度分析</h3>
+<ol style="list-style-type: decimal">
+<li><strong>示向度误差 <span class="math inline">\(\varepsilon\)</span></strong>：由式 (1)，<span class="math inline">\(\Delta\propto\tan\varepsilon\)</span>。离线验证 <span class="math inline">\(\pm0.5^\circ\)</span> 时偏差约 7 m，外推 <span class="math inline">\(\pm1^\circ\)</span> 约 14 m，仍小于 20 m 清除半径；若误差倍增至 <span class="math inline">\(\pm2^\circ\)</span>，单点外推约 28 m 将超出清除半径，但多示向度最小二乘对独立误差具 <span class="math inline">\(1/\sqrt n\)</span> 平均效应，且 spread 门槛会把病态估计挡在清除之外、以时间换精度，清除率仍有保障；</li>
+<li><strong>网格步长 <span class="math inline">\(h\)</span></strong>：实证层面，800 m 与 500 m 两种配置在问题 3/4 布局上均全清（表 1 演练-3、表 2 演练-1/2 构成交叉验证）；代价层面，500 m 网格点数（69）为 800 m（29）的约 2.4 倍，虚拟时间仅由约 1.0 万 s 增至约 1.6 万 s，距 36 万 s 预算余量巨大，网格密度不构成瓶颈；</li>
+<li><strong>置信门槛（spread ≤ 40 m）</strong>：最坏误差上界 48 m，实测最大 14.2 m，裕度约 3 倍；收紧至 30 m 只会推迟清除、增加时间，不损清除率；放宽至 80 m 仅用于收尾挽回，实测未出现因放宽导致的连续未中；</li>
+<li><strong>重复清除抑制阈值（10 m / 2 条）</strong>：取清除半径之半与&quot;几何确实补强&quot;两个约束的自然取值，离线回归与 4 局 v2.1 实测（问题 4 演练-3 触发 24 次、正式三局合计 34 次，均零漏清）验证其不阻断自愈；</li>
+<li><strong>时间预算</strong>：现实时间最多约 18 s（预算 1200 s 的 1.5%），虚拟时间最高 42170.8 s（预算的 11.7%，且为未加抑制的病态局），正常局约 3%～4.5%。即使预算减半或源数取上限 16，现有策略仍有数量级余量。</li>
+</ol>
+<h3 id="改进方向">8.4 改进方向</h3>
+<p>按改进所触及的层次（算法建模、代码实现、系统级）由近及远列出。<strong>本节所列均为下一阶段工作，本版本未实施任何一条</strong>——实施任何一条都需要重新设计对照实验、与现有 12 局日志做一致性核验后方可纳入正式结论。</p>
+<p><strong>A. 算法建模层（需重做对照实验）</strong> 1. <strong>最大方位空隙门槛</strong>：在 spread 之外增加&quot;相邻示向度方位角的最大空隙 ≤ 90°&quot;的辅助判据，拦截单侧观测病态——7.6.1 案例中各观测点挤在源的一侧约 160° 弧段内、最大空隙约 200°，此类几何用空隙判据可直接识别； 2. <strong>加权最小二乘替代等权 LS</strong>：误差与测向距离成正比（<span class="math inline">\(\sigma_i\approx\varphi_i\cdot d_i\)</span>），目标函数应改为 <span class="math inline">\(\sum_i\bigl(\mathbf n_i^\top(G-S_i)\bigr)^2/d_i^2\)</span> 而非当前等权最小二乘（<code>triangulate</code>）。等价地，估计协方差 <span class="math inline">\(\operatorname{Cov}=\sigma^2\bigl(\sum_i\mathbf n_i\mathbf n_i^\top/d_i^2\bigr)^{-1}\)</span>（<span class="math inline">\(\sigma=1^\circ\)</span>），置信门槛以马氏距离代替 spread，能从根上拦截沿射线方向的系统性偏移——7.6.1 案例中马氏距离会显著超阈，而 spread 仅 1.4 m 不可见。<span class="math inline">\(d_i\)</span> 未知可用迭代近似 <span class="math inline">\(t_i\approx\hat d\)</span> 实现； 3. <strong>覆盖率与质量联合优化</strong>：把 §7.2 的网格加密论证从单变量（点数）升级为多变量（点数 × 交角 × 示向度条数 × 马氏距离），按代价函数统一搜索最佳网格步长，避免 P3/P4 用两套参数； 4. <strong>两阶段扫描（探测优先）</strong>：先粗网格（1000 m 级）全频道快速发现，再对出现示向度的频道局部加密定位，省去对全频道均匀细扫的虚拟时间开销；预期可将虚拟时间再降 30%~50%，对零观测频道直接放弃细扫。</p>
+<p><strong>B. 代码实现层（触及冻结版红线，仅在重新生成日志时纳入）</strong> 5. <strong><code>MAX_ANGLE_GAP</code> 默认值调为 210°</strong>：当前冻结版未实现该函数（仅在后续评审报告中讨论过），下一版本可默认启用 210°，与 7.6.1 案例最大空隙 200° 阈值匹配，作为 spread 的补充拦截； 6. <strong>统一 <code>should_clear(ch)</code> 入口</strong>：将主扫描、验证轮、环绕补探、收尾四处清除逻辑收口到单一函数，确保 v2.1 重复清除抑制一致触发； 7. <strong>HTTP 429/5xx 退避重试</strong>：附件 2 §5.5 提及 429（限流）情形，当前 <code>_post</code> 仅对网络层错误重试；下一版本需对 429 与 5xx 加入指数退避，对 4xx 维持不重试； 8. <strong><code>try/finally</code> 覆盖所有 <code>clear</code> 调用点</strong>：确保主扫描/验证轮/环绕补探的 <code>clear</code> 也在退出阶段被记账，避免异常退出时少记一次尝试； 9. <strong>加权最小二乘实现</strong>（对应 A.2）：保留旧 <code>triangulate</code> 返回值不变，新增 <code>triangulate_weighted(obs, dist_hint)</code> 返回 <code>(x, y, spread, mahal)</code>，供 A.2 切换； 10. <strong>自适应网格细化</strong>（对应 A.4）：在 <code>grid_points()</code> 上层加 <code>coarse_then_refine()</code>，按首次扫描命中情况自适应切换细网格步长。</p>
+<p><strong>C. 系统级（需扩展协议）</strong> 11. <strong>多机协同</strong>：多台机器狗分区覆盖可同时压缩现实时间与虚拟时间，但需扩展协议的并发与同步设计； 12. <strong>路径全局优化</strong>：以 TSP/orienteering 类模型[11]替换最近邻贪心，可在源数上限增大时进一步降低移动开销。</p>
+<hr />
+<h2 id="ai-工具使用声明">AI 工具使用声明</h2>
+<p>本参赛队在竞赛过程中使用了 AI 工具，主要用于文献检索与引用核对、代码调试、数据核对以及语言润色，详细使用情况见支撑材料《AI 工具使用详情》。</p>
+<hr />
+<h2 id="参考文献">参考文献</h2>
+<p>[1] 姜启源, 谢金星, 叶俊. 数学模型[M]. 5版. 北京: 高等教育出版社, 2018.</p>
+<p>[2] Torrieri D. Statistical theory of passive location systems[J]. IEEE Transactions on Aerospace and Electronic Systems, 1984, 20(2): 183-198.</p>
+<p>[3] 孙仲康, 郭福成, 冯道旺. 单站无源定位跟踪技术[M]. 北京: 国防工业出版社, 2008.</p>
+<p>[4] O'Rourke J. Computational Geometry in C[M]. 2nd ed. Cambridge: Cambridge University Press, 1998.</p>
+<p>[5] Preparata F P, Shamos M I. Computational Geometry: An Introduction[M]. New York: Springer-Verlag, 1985.</p>
+<p>[6] Jung K W. Über die kleinste Kugel, die eine räumliche Figur einschließt[J]. Journal für die reine und angewandte Mathematik, 1901, 123: 241-257.</p>
+<p>[7] Welzl E. Smallest enclosing disks (balls and ellipsoids)[C]//Maurer H. New Results and New Trends in Computer Science. Berlin: Springer, 1991: 359-370.</p>
+<p>[8] Lawson C L, Hanson R J. Solving Least Squares Problems[M]. Philadelphia: SIAM, 1995.</p>
+<p>[9] 司守奎, 孙玺菁. 数学建模算法与应用[M]. 2版. 北京: 国防工业出版社, 2015.</p>
+<p>[10] Choset H. Coverage for robotics – A survey of recent results[J]. Annals of Mathematics and Artificial Intelligence, 2001, 31(1): 113-126.</p>
+<p>[11] Applegate D L, Bixby R E, Chvátal V, Cook W J. The Traveling Salesman Problem: A Computational Study[M]. Princeton: Princeton University Press, 2006.</p>
+<hr />
+<h2 id="附录">附录</h2>
+<h3 id="附录-a-代码与运行方式">附录 A 代码与运行方式</h3>
+<p>核心程序：<code>03_代码/robot_client.py</code>（单文件实现协议客户端、网格生成、最小二乘交会、置信门槛、环绕补探、重复清除抑制、日志落盘）。</p>
+<ul>
+<li>问题 1 算例复现：<code>python q1_region_example.py</code>（输出 §4.5 全部数值）；</li>
+<li>问题 3 策略：<code>python robot_client.py strategy</code>（800 m 网格，无环绕补探）；</li>
+<li>问题 4 策略：<code>python robot_client.py strategy4</code>（500 m 网格 + 环绕补探 + v2.1 抑制）；</li>
+<li>运行前提：官方模拟器已开放本地接口（<code>http://127.0.0.1:2026</code>）。</li>
+</ul>
+<h3 id="附录-b-测试日志清单">附录 B 测试日志清单</h3>
+<p>全部日志随论文打包提交。客户端逐请求日志位于 <code>03_代码/</code>，模拟器官方结果文件（<code>practice-*/formal-*.result.json</code>，明文）位于模拟器数据目录 <code>behavior-logs/</code>。</p>
+<table>
+<thead>
+<tr class="header">
+<th>局别</th>
+<th>客户端日志</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P3 演练-1</td>
+<td>robot_log.jsonl</td>
+<td>12/12 全清</td>
+</tr>
+<tr class="even">
+<td>P3 演练-2</td>
+<td>robot_log_20260911_114224.jsonl</td>
+<td>15/15 全清</td>
+</tr>
+<tr class="odd">
+<td>P3 演练-3</td>
+<td>robot_log_20260911_122641.jsonl</td>
+<td>11/11 全清（500 m 交叉验证）</td>
+</tr>
+<tr class="even">
+<td>P4 演练-1</td>
+<td>robot_log_20260911_114353.jsonl</td>
+<td>16/16 全清（8 全向 + 8 定向）</td>
+</tr>
+<tr class="odd">
+<td>P4 演练-2</td>
+<td>robot_log_20260911_121532.jsonl</td>
+<td>16/16 全清（6 全向 + 10 定向）</td>
+</tr>
+<tr class="even">
+<td>P4 演练-3</td>
+<td>robot_log_20260911_124638.jsonl</td>
+<td>12/12 全清（完整 v2.1）</td>
+</tr>
+<tr class="odd">
+<td>P3 正式-1</td>
+<td>robot_log_20260911_130234.jsonl</td>
+<td>14/14 全清</td>
+</tr>
+<tr class="even">
+<td>P4 正式-1</td>
+<td>robot_log_20260911_130331.jsonl</td>
+<td>16/16 全清</td>
+</tr>
+<tr class="odd">
+<td>P3 正式-2</td>
+<td>robot_log_20260911_132219.jsonl</td>
+<td>15/15 全清</td>
+</tr>
+<tr class="even">
+<td>P3 正式-3</td>
+<td>robot_log_20260911_132236.jsonl</td>
+<td>12/12 全清</td>
+</tr>
+<tr class="odd">
+<td>P4 正式-2</td>
+<td>robot_log_20260911_132305.jsonl</td>
+<td>10/10 全清</td>
+</tr>
+<tr class="even">
+<td>P4 正式-3</td>
+<td>robot_log_20260911_132326.jsonl</td>
+<td>11/11 全清</td>
+</tr>
+</tbody>
+</table>
+<h3 id="附录-c-指标口径">附录 C 指标口径</h3>
+<ol style="list-style-type: decimal">
+<li><strong>已清除</strong>：日志 summary 事件中清除成功的去重频道数；</li>
+<li><strong>源总数</strong>：演练局取官方结果文件 <code>jammer_count</code>；正式局按&quot;零示向度频道 = 空频道&quot;推断（判据经 6 局演练官方验证）；</li>
+<li><strong>平均交会残差</strong>：各频道清除成功时刻的交会散布（spread）均值与最大值，单位 m。残差是各示向线到估计点的最大垂距（真实源位置未知，定位真误差不可直接测得）；</li>
+<li><strong>平均定位清除时间</strong>：各频道自首次探测（<code>direction</code>/<code>near</code>）至清除成功的虚拟时间，均值与最大值，单位虚拟秒；</li>
+<li><strong>现实/虚拟时间</strong>：程序退出时刻与进入时刻的差值（现实），以及退出响应中的 <code>virtual_time_s</code>（虚拟）。</li>
+</ol>
+</body>
+</html>
